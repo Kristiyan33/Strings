@@ -10,6 +10,8 @@ public class Tasks {
         Scanner scanner = new Scanner(System.in);
 
 
+
+
         // zadacha 2
         System.out.println("Task 2");
         String savedName  = new String("Ivan");
