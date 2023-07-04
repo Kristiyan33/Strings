@@ -94,5 +94,8 @@ public class Tasks {
             System.out.println(dayOfWeek[i]);
         }
 
+
+        // Homework
+        System.out.println();
    }
 }
