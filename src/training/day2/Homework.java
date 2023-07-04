@@ -34,10 +34,9 @@ public class Homework {
             result = result + numbers[i];
         }
 
-        System.out.println("The sum of the numbers is" + numbers);
+        System.out.println("The sum of the numbers is " + result);
 
         //zadacha 3
-        //
         System.out.println("Homework Task 3");
 
         String[] words2 = new String[4];
