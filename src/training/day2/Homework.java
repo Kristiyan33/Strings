@@ -40,28 +40,21 @@ public class Homework {
         System.out.println("Homework Task 3");
 
         String[] words2 = new String[4];
-        String[] words2_new = new String[4];
-
 
         for(int i = 0;i< words2.length;i++){
 
             words2[i] = scanner.nextLine();
         }
 
+        System.out.println("The words with less than for symbols are:");
+
         for(int i= 0; i< numbers.length;i++){
 
             if (words2[i].length()<=4){
-                for(int j= 0; j<=numbers.length;j++){
-                    words2[i]=words2_new[j];
-                }
+                System.out.println(words2[i]);
             }
+
         }
 
-        System.out.println("Thw words with less than for symbols are:");
-
-        for(int i = 0;i< words2_new.length;i++){
-
-            System.out.println(words2_new[i]);
-        }
     }
 }
