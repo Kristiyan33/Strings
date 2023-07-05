@@ -39,6 +39,8 @@ public class Tasks {
                 break;
         }
 
+        //
+
         // zadacha 2
         System.out.println("Task 2");
         String savedName  = new String("Ivan");
