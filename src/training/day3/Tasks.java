@@ -6,9 +6,12 @@ import java.util.Scanner;
 public class Tasks {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        // zadacha 1
         System.out.println("Task 1");
         int[] numbers = new int[]{10, 2, 1, -1, 5, 9, 7, 6, 5, -5};
         task1(numbers);
+
+        // zadacha 2
         System.out.println("Task 2");
         String word1 = "Plovdiv";
         String word2 = "lov";
@@ -17,10 +20,15 @@ public class Tasks {
             System.out.println(result);
         }
 
+        // zadacha 3
         System.out.println("Task 3");
         System.out.println(reversing("I love Java"));
+
+        // zadacha 4
         System.out.println("Task 4");
         System.out.println(initials("Kristiyan Zheliazkov"));
+
+        // zadacha 5
         System.out.println("Task 5");
         ArrayList<String> arrlist = new ArrayList();
         System.out.println("Enter words:");
