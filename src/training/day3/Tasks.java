@@ -101,7 +101,7 @@ public class Tasks {
     }
 
     static String initials(String names) {
-        String initials = "";
+        String initials;
         initials = names.substring(0, 1);
         initials = initials + " ";
         int space = names.indexOf(" ");

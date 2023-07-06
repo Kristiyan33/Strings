@@ -15,11 +15,9 @@ public class Homework {
 
         System.out.println("The words starting with 'a' are:");
 
-        for(int i= 0; i< words.length;i++) {
+        for(int i = 0; i < words.length; i++) {
             if (words[i].indexOf("a") == 0) {
-
                 System.out.println(words[i]);
-
             }
         }
 
@@ -28,10 +26,8 @@ public class Homework {
 
         int[] numbers = new int[]{1,7,3,9,3,6};
         int result = 0;
-
-        for(int i= 0; i< numbers.length;i++){
-
-            result = result + numbers[i];
+        for(int i= 0; i< numbers.length; i++){
+            result += numbers[i];
         }
 
         System.out.println("The sum of the numbers is " + result);
