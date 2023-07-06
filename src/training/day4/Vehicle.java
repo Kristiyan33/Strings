@@ -11,7 +11,6 @@ public class Vehicle {
         fuelConsumption = DEFAUL_FUEL_CONSUMPTION;
         setFuel(fuel_);
         setHorsePower(hp);
-
     }
 
     public void setFuel(double fuel) {
