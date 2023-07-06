@@ -2,13 +2,13 @@ package training.day4;
 
 public class Vehicle {
 
-    final static double DEFAUL_FUEL_CONSUMPTION = 1.25;
+    final static double DEFAULT_FUEL_CONSUMPTION = 1.25;
     private double fuelConsumption;
     private double fuel;
     private int horsePower;
 
     public Vehicle(double fuel_,int hp){
-        fuelConsumption = DEFAUL_FUEL_CONSUMPTION;
+        fuelConsumption = DEFAULT_FUEL_CONSUMPTION;
         setFuel(fuel_);
         setHorsePower(hp);
     }
@@ -31,5 +31,15 @@ public class Vehicle {
 
     public int getHorsePower() {
         return horsePower;
+    }
+
+    public void drive(int distance){
+        if(fuel<=0){
+            throw new IllegalArgumentException("Not enough fuel to start the trip.");
+        }
+        else{
+            fuel = fuel -(fuelConsumption*(distance/100));
+            System.out.println(fuel);
+        }
     }
 }
