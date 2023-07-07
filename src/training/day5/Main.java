@@ -29,7 +29,6 @@ public class Main {
         System.out.println("Enter b:");
         double b1 = scanner.nextDouble();
 
-        //
 
         Rectangle rectangle1 = new Rectangle(a1, b1);
         System.out.println("The area of the rectangle is: " + rectangle1.calculateArea());
