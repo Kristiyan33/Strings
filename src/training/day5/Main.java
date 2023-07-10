@@ -8,7 +8,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         Person[] people = new Person[5];
-        // int nSudents' value should equal the number of students;
+        // int nSudents' value should equal the number of students.
         // It could also be used to write how many students you want to have in more advanced version of the code;
         int nStudents = 3;
 
