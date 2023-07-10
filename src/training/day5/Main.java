@@ -1,5 +1,7 @@
 package training.day5;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -7,138 +9,83 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter how many students you want to have: ");
-        int nStudents = scanner.nextInt();
-        Student[] students = new Student[nStudents];
-        System.out.print("Creating students...");
-        creatingStudents(nStudents, students);
+        Person[] people = new Person[5];
 
-        System.out.print("Enter how many teachers you want to have: ");
-        int nTeachers = scanner.nextInt();
-        Teacher[] teachers = new Teacher[nTeachers];
-        System.out.print("Creating teachers...");
-        creatingTeachers(nTeachers, teachers);
+        Student student1 = new Student("Alex", "male", 3543, 7, 2, 5, 6, 4, 6);
+        people[0] = student1;
+        Student student2 = new Student("Gergana", "female", 6743, 7, 6, 3, 6, 5, 6);
+        people[1] = student2;
+        Student student3 = new Student("Kamen", "male", 9833, 7, 8, 6, 2, 4, 3);
+        people[2] = student3;
+        Teacher teacher1 =  new Teacher("Goshko", "male", 2442, "PGEE", "math", 3500);
+        people[3] = teacher1;
+        Teacher teacher2 =  new Teacher( "Qnko", "male", 5432, "PGEE", "science", 2000);
+        people[4] = teacher2;
+        teacher1.grades[0] = student1.gradeMath;
+        teacher1.grades[1] = student2.gradeMath;
+        teacher1.grades[2] = student3.gradeMath;
+        teacher2.grades[0] = student1.gradeScience;
+        teacher2.grades[1] = student2.gradeScience;
+        teacher2.grades[2] = student3.gradeScience;
 
-        System.out.println("This is the information we have about the sudents and the teachers.");
-        System.out.println("STUDENTS");
-        studentsInfo(students);
-        System.out.println("TEACHERS");
-        teahcersInfo(teachers);
-
-        System.out.print("Enter subject to see who has the highest grades in it(math/histoy/science/physics):");
-        String subject = scanner.next();
-        System.out.print("Also enter wheter you want to see the highest result fo the subject or the lowest(highest/lowest):");
-        String lowestOrHighest = scanner.next();
-        System.out.println("The student with the highest grade in " + subject + " is " + highestMark(subject,lowestOrHighest, students));
-        System.out.println("The average salary of the theachers is " + averageSalary(teachers) + ".");
-        averageMark(students);
-        System.out.println("Enter which subject's average mark for the class you want to see:");
-        String subjectAverage = scanner.next();
-        System.out.println("The average mark of the class in " + subjectAverage + " is " + averageForSubject(subjectAverage, students) + ".");
+        peopleInfo(people);
+        System.out.println(highestMark(people));
+        System.out.println(lowestMark(people));
+        System.out.println(averageSalary(people));
+        averageMark(people);
+        System.out.println(averageMarkForClass(people));
 
 
 
-        // if (gender == "f" || gender == "F" || gender == "m" || gender == "M") {
-        //            this.gender = gender;
-        //        }
-        //        else
-        //        {
-        //            throw new IllegalArgumentException("Wrong credetentials!");
-        //        }
+        //System.out.print("Enter subject to see who has the highest grades in it(math/histoy/science/physics):");
+        //String subject = scanner.next();
+        //System.out.print("Also enter wheter you want to see the highest result fo the subject or the lowest(highest/lowest):");
+        //String lowestOrHighest = scanner.next();
+        //System.out.println("The student with the highest grade in " + subject + " is " + highestMark(subject,lowestOrHighest, students));
+        //System.out.println("The average salary of the theachers is " + averageSalary(teachers) + ".");
+        //averageMark(students);
+        //System.out.println("Enter which subject's average mark for the class you want to see:");
+        //String subjectAverage = scanner.next();
+        //System.out.println("The average mark of the class in " + subjectAverage + " is " + averageForSubject(subjectAverage, students) + ".");
+
     }
-
-    public static void creatingStudents(int n, Student[] students){
-
-        Scanner scanner = new Scanner(System.in);
-
-        for(int i = 0; i < students.length; i++){
-            System.out.println("Enter name: ");
-            String name = scanner.next();
-            System.out.println("Enter gender(m or f): ");
-            String gender = scanner.next();
-            System.out.println("Enter ID number: ");
-            int id = scanner.nextInt();
-            System.out.println("Enter in which class the student is: ");
-            int _class = scanner.nextInt();
-            System.out.println("Enter his number in clas: ");
-            int numberInClass = scanner.nextInt();
-            System.out.println("Enter his Math grade: ");
-            int gradeMath = scanner.nextInt();
-            System.out.println("Enter his History grade: ");
-            int gradeHistory = scanner.nextInt();
-            System.out.println("Enter his Science grade: ");
-            int gradeScience = scanner.nextInt();
-            System.out.println("Enter his Physics grade: ");
-            int gradePhysics = scanner.nextInt();
-
-            students[i] = new Student(name, gender, id, _class, numberInClass, gradeMath, gradeHistory, gradeScience, gradePhysics);
+    public static void peopleInfo(Person[] people){
+        for(int i = 0; i < people.length; i++){
+            if(people[i] instanceof Student){
+                ((Student) people[i]).studentInformation();
+            }
+            else if(people[i] instanceof Teacher){
+                ((Teacher) people[i]).teacherInformation();
+            }
         }
     }
 
-    public static void creatingTeachers(int n, Teacher[] teachers){
+    public static String highestMark(Person[] people){
 
-        Scanner scanner = new Scanner(System.in);
+        String HighestMark = ((Student) people[0]).name;
 
-        for(int i = 0; i < teachers.length; i++){
-            System.out.println("Enter name: ");
-            String name = scanner.next();
-            System.out.println("Enter gender(m or f): ");
-            String gender = scanner.next();
-            System.out.println("Enter ID number: ");
-            int id = scanner.nextInt();
-            System.out.println("Enter in which school the teacher works: ");
-            String school = scanner.next();
-            System.out.println("Enter in which subject he teaches: ");
-            String subject = scanner.next();
-            System.out.println("Enter his salary: ");
-            int salary = scanner.nextInt();
-
-            teachers[i] = new Teacher(name, gender, id, school, subject, salary);
-        }
-    }
-
-    public static void studentsInfo(Student[] students){
-        for(int i = 0; i < students.length; i++){
-            students[i].studentInformation();
-        }
-    }
-
-    public static void teahcersInfo(Teacher[] teachers){
-        for(int i = 0; i < teachers.length; i++){
-            teachers[i].teacherInformation();
-        }
-    }
-
-    public static String highestMark(String subject, String lowestOrHighest, Student[] students){
-
-        String HighestMark = "";
-
-        switch(lowestOrHighest){
-            case "highest":
-                switch(subject) {
-                    case "math":
-                        return Marks(students);
-                    case "history":
-                        return Marks(students);
-                    case "physics":
-                        return Marks(students);
-                    case "science":
-                        return Marks(students);
+        for(int i = 1;i < people.length;i++){
+            if(people[i] instanceof Student){
+                if (((Student) people[i]).gradeMath > ((Student)people[i-1]).gradeMath){
+                    HighestMark = ((Student) people[i]).name;
                 }
-            case "lowest":
-                switch(subject){
-                    case "math":
-                        return lMarks(students);
-                    case "history":
-                        return lMarks(students);
-                    case "physics":
-                        return lMarks(students);
-                    case "science":
-                        return lMarks(students);
-                }
+            }
         }
+        return HighestMark;
+    }
 
-        return "Invalid Inputs!";
+    public static String lowestMark(Person[] people){
+
+        String lowestMark = ((Student) people[0]).name;
+
+        for(int i = 1;i < people.length;i++){
+            if(people[i] instanceof Student){
+                if (((Student) people[i]).gradeHistory < ((Student)people[i-1]).gradeHistory){
+                    lowestMark = ((Student) people[i]).name;
+                }
+            }
+        }
+        return lowestMark;
     }
 
     public static String Marks(Student[] students){
@@ -152,32 +99,43 @@ public class Main {
         return HighestMark;
     }
 
-    public static String lMarks(Student[] students){
+    public static double averageMarkForClass(Person[] people){
 
-        String LowestMark = "";
-        for(int i = 1; i < students.length; i++){
-            if(students[i].gradeMath < students[i-1].gradeMath){
-                LowestMark = students[i].name;
+        double averageForClass = 0;
+
+        for(int i = 1; i < people.length; i++){
+            if(people[i] instanceof Student){
+                averageForClass += ((Student) people[i]).averageMark(((Student) people[i]).gradeMath, ((Student) people[i]).gradeHistory, ((Student) people[i]).gradeScience, ((Student) people[i]).gradePhysics);
             }
         }
-        return LowestMark;
+        return (averageForClass/3);
     }
 
-    public static int averageSalary(Teacher[] teachers){
+    public static double averageSalary(Person[] people) {
         int salary = 0;
+        int n = 0;
 
-        for(int i = 0; i < teachers.length; i++){
-            salary += teachers[i].salary;
+        for (int i = 0; i < people.length; i++) {
+            if (people[i] instanceof Teacher) {
+                salary += ((Teacher) people[i]).salary;
+                n += 1;
+            }
         }
 
-        return salary/ teachers.length;
+        return (salary / 2);
     }
 
-    public static void averageMark(Student[] students){
+    public static void averageMark(Person[] people){
 
-           for(int i = 0; i < students.length; i++){
-               System.out.println("The average mark of " + students[i].name + " is " + students[i].averageMark(students[i].gradeMath, students[i].gradeHistory, students[i].gradeScience, students[i].gradePhysics));
-           }
+        double mark = 0;
+
+        for(int i = 0; i < people.length; i++){
+            if(people[i] instanceof Student){
+                mark = ((Student) people[i]).gradeMath + ((Student) people[i]).gradeHistory +((Student) people[i]).gradeScience +((Student) people[i]).gradePhysics;
+                System.out.println(((Student) people[i]).name + " average mark is " + (mark/4));
+            }
+            mark = 0;
+        }
     }
 
     public static double averageForSubject(String subject, Student[] students){
@@ -201,6 +159,10 @@ public class Main {
                 }
         }
 
-        return averageForSubject/ students.length;
+        return (averageForSubject/ students.length);
+    }
+
+    public void teacherHighestMarks(Teacher[] teachers, Student[] students){
+
     }
 }

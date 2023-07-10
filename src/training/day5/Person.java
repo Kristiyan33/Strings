@@ -13,12 +13,7 @@ public class Person {
 
     public void personInformation(){
         System.out.println("The name of the person is " + name);
-        if (gender == "m" || gender == "M"){
-            System.out.println("He is a male.");
-        }
-        else{
-            System.out.println("She is a female.");
-        }
+        System.out.println("He is a " + gender + ".");
         System.out.println("His ID is " + ID);
     }
 }
