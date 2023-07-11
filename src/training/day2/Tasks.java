@@ -14,8 +14,8 @@ public class Tasks {
         System.out.println("Enter day of the week as number:");
         int n = scanner.nextInt();
 
-        switch(n){
 
+        switch(n) {
             case 1:
                 System.out.println("Today is Monday.");
                 break;
@@ -38,7 +38,6 @@ public class Tasks {
                 System.out.println("Today is Saturday.");
                 break;
         }
-
 
         // zadacha 2
         System.out.println("Task 2");

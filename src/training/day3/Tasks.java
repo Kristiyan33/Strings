@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Tasks {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
         // zadacha 1
         System.out.println("Task 1");
         int[] numbers = new int[]{10, 2, 1, -1, 5, 9, 7, 6, 5, -5};
@@ -19,6 +20,7 @@ public class Tasks {
             String result = word1.replace(word2, "");
             System.out.println(result);
         }
+
 
         // zadacha 3
         System.out.println("Task 3");
@@ -101,6 +103,7 @@ public class Tasks {
     }
 
     static String initials(String names) {
+<
         String initials;
         initials = names.substring(0, 1);
         initials = initials + " ";
