@@ -2,10 +2,10 @@ package training.day5;
 
 public class Teacher extends Person{
 
-    String school;
-    String subject;
-    int salary;
-    int[] grades = new int[3];
+    private String school;
+    private String subject;
+    private int salary;
+    private int[] grades = new int[3];
 
     public Teacher(String name, String gender, int ID, String school, String subject, int salary) {
         super(name, gender, ID);
@@ -14,12 +14,33 @@ public class Teacher extends Person{
         this.salary = salary;
     }
 
+    public String getSchool() {
+        return school;
+    }
 
+    public String getSubject() {
+        return subject;
+    }
 
-    public void teacherInformation(){
+    public int getSalary() {
+        return salary;
+    }
+
+    public int[] getGrades() {
+        return grades;
+    }
+
+    public void setGrades(int grades) {
+
+        for(int i = 0;i < 4;i++) {
+            this.grades[i] = grades;
+        }
+    }
+
+    public void teacherInformation() {
         super.personInformation();
-        System.out.println(super.name + " is teaching in " + school);
-        System.out.println(super.name + " is " + subject + " teacher.");
-        System.out.println(super.name + "'s salary is " + salary);
+        System.out.println(super.getName() + " is teaching in " + school);
+        System.out.println(super.getName() + " is " + subject + " teacher.");
+        System.out.println(super.getName() + "'s salary is " + salary);
     }
 }

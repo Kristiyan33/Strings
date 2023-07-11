@@ -2,12 +2,12 @@ package training.day5;
 
 public class Student extends Person{
 
-    int _class;
-    int numberInClass;
-    int gradeMath;
-    int gradeHistory;
-    int gradeScience;
-    int gradePhysics;
+    private int _class;
+    private int numberInClass;
+    private int gradeMath;
+    private int gradeHistory;
+    private int gradeScience;
+    private int gradePhysics;
 
     public Student(String name, String gender, int ID, int _class, int numberInClass, int gradeMath, int gradeHistory, int gradeScience, int gradePhysics) {
         super(name, gender, ID);
@@ -41,14 +41,38 @@ public class Student extends Person{
         }
     }
 
+    public int get_class() {
+        return _class;
+    }
+
+    public int getNumberInClass() {
+        return numberInClass;
+    }
+
+    public int getGradeMath() {
+        return gradeMath;
+    }
+
+    public int getGradeHistory() {
+        return gradeHistory;
+    }
+
+    public int getGradeScience() {
+        return gradeScience;
+    }
+
+    public int getGradePhysics() {
+        return gradePhysics;
+    }
+
     public void studentInformation(){
         super.personInformation();
-        System.out.println(super.name + " is in " + _class + "th class.");
-        System.out.println(super.name + " is number " + numberInClass + " in class.");
-        System.out.println(super.name + "'s grade in Math is " + gradeMath + ".");
-        System.out.println(super.name + "'s grade in History is " + gradeHistory + ".");
-        System.out.println(super.name + "'s grade in Science is " + gradeScience + ".");
-        System.out.println(super.name + "'s grade in Physics is " + gradePhysics + ".");
+        System.out.println(super.getName() + " is in " + _class + "th class.");
+        System.out.println(super.getName() + " is number " + numberInClass + " in class.");
+        System.out.println(super.getName() + "'s grade in Math is " + gradeMath + ".");
+        System.out.println(super.getName() + "'s grade in History is " + gradeHistory + ".");
+        System.out.println(super.getName() + "'s grade in Science is " + gradeScience + ".");
+        System.out.println(super.getName() + "'s grade in Physics is " + gradePhysics + ".");
     }
 
     public double averageMark(int gradeMath, int gradeHistory, int gradeScience, int gradePhysics){

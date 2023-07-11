@@ -22,12 +22,12 @@ public class Main {
         people[3] = teacher1;
         Teacher teacher2 =  new Teacher( "Qnko", "male", 5432, "PGEE", "science", 2000);
         people[4] = teacher2;
-        teacher1.grades[0] = student1.gradeMath;
-        teacher1.grades[1] = student2.gradeMath;
-        teacher1.grades[2] = student3.gradeMath;
-        teacher2.grades[0] = student1.gradeScience;
-        teacher2.grades[1] = student2.gradeScience;
-        teacher2.grades[2] = student3.gradeScience;
+        teacher1.setGrades(student1.getGradeMath());
+        teacher1.setGrades(student2.getGradeMath());
+        teacher1.setGrades(student3.getGradeMath());
+        teacher2.setGrades(student1.getGradeScience());
+        teacher2.setGrades(student2.getGradeScience());
+        teacher2.setGrades(student3.getGradeScience());
 
         peopleInfo(people);
         System.out.println(highestGrade(people));
@@ -55,12 +55,12 @@ public class Main {
 
     public static String highestGrade(Person[] people){
 
-        String HighestGrade = ((Student) people[0]).name;
+        String HighestGrade = people[0].getName();
 
         for(int i = 1;i < people.length;i++){
             if(people[i] instanceof Student){
-                if (((Student) people[i]).gradeMath > ((Student)people[i-1]).gradeMath){
-                    HighestGrade = ((Student) people[i]).name;
+                if (((Student) people[i]).getGradeMath() > ((Student)people[i-1]).getGradeMath()){
+                    HighestGrade = people[i].getName();
                 }
             }
         }
@@ -69,12 +69,12 @@ public class Main {
 
     public static String lowestGrade(Person[] people){
 
-        String lowestGrade = ((Student) people[0]).name;
+        String lowestGrade = people[0].getName();
 
         for(int i = 1;i < people.length;i++){
             if(people[i] instanceof Student){
-                if (((Student) people[i]).gradeHistory < ((Student)people[i-1]).gradeHistory){
-                    lowestGrade = ((Student) people[i]).name;
+                if (((Student) people[i]).getGradeHistory() < ((Student)people[i-1]).getGradeHistory()){
+                    lowestGrade = people[i].getName();
                 }
             }
         }
@@ -87,7 +87,7 @@ public class Main {
 
         for(int i = 1; i < people.length; i++){
             if(people[i] instanceof Student){
-                averageForClass += ((Student) people[i]).averageMark(((Student) people[i]).gradeMath, ((Student) people[i]).gradeHistory, ((Student) people[i]).gradeScience, ((Student) people[i]).gradePhysics);
+                averageForClass += ((Student) people[i]).averageMark(((Student) people[i]).getGradeMath(), ((Student) people[i]).getGradeHistory(), ((Student) people[i]).getGradeScience(), ((Student) people[i]).getGradePhysics());
             }
         }
         return (averageForClass/3);
@@ -99,7 +99,7 @@ public class Main {
 
         for (int i = 0; i < people.length; i++) {
             if (people[i] instanceof Teacher) {
-                salary += ((Teacher) people[i]).salary;
+                salary += ((Teacher) people[i]).getSalary();
                 n += 1;
             }
         }
@@ -113,8 +113,8 @@ public class Main {
 
         for(int i = 0; i < people.length; i++){
             if(people[i] instanceof Student){
-                averageGrade = ((Student) people[i]).gradeMath + ((Student) people[i]).gradeHistory +((Student) people[i]).gradeScience +((Student) people[i]).gradePhysics;
-                System.out.println(((Student) people[i]).name + " average mark is " + (averageGrade/4));
+                averageGrade = ((Student) people[i]).getGradeMath() + ((Student) people[i]).getGradeHistory() +((Student) people[i]).getGradeScience() +((Student) people[i]).getGradePhysics();
+                System.out.println(people[i].getName() + " average mark is " + (averageGrade/4));
             }
             averageGrade = 0;
         }
@@ -131,7 +131,7 @@ public class Main {
                 for(int i = 0; i < people.length; i++) {
                     if(people[i] instanceof Student){
 
-                        averageForMath += ((Student) people[i]).gradeMath ;
+                        averageForMath += ((Student) people[i]).getGradeMath() ;
                     }
                 }
                 averageForMath = averageForMath/n;
@@ -139,7 +139,7 @@ public class Main {
                 for(int i = 0; i < people.length; i++){
                     if(people[i] instanceof Student){
 
-                        averageForHistory += ((Student) people[i]).gradeHistory ;
+                        averageForHistory += ((Student) people[i]).getGradeHistory() ;
                     }
                 }
                 averageForHistory = averageForHistory/n;
@@ -147,7 +147,7 @@ public class Main {
                 for(int i = 0; i < people.length; i++){
                     if(people[i] instanceof Student){
 
-                        averageForScience += ((Student) people[i]).gradeScience ;
+                        averageForScience += ((Student) people[i]).getGradeScience() ;
                     }
                 }
                 averageForScience = averageForScience/n;
@@ -155,7 +155,7 @@ public class Main {
                 for(int i = 0; i < people.length; i++) {
                     if(people[i] instanceof Student){
 
-                        averageForPhysics += ((Student) people[i]).gradePhysics ;
+                        averageForPhysics += ((Student) people[i]).getGradePhysics() ;
                     }
                 }
                 averageForPhysics = averageForPhysics/n;
@@ -183,8 +183,8 @@ public class Main {
 
         for(int i = 0; i < people.length; i++) {
             if(people[i] instanceof Teacher){
-                if( ((Teacher) people[i]).subject == subject){
-                    return people[i].name;
+                if( ((Teacher) people[i]).getSubject() == subject){
+                    return people[i].getName();
                     }
             }
         }
