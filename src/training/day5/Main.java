@@ -42,7 +42,7 @@ public class Main {
         TeacherSingingHighestGrade(people, nStudents);
 
     }
-    public static void peopleInfo(Person[] people){
+    public static void peopleInfo(Person[] people) {
         for(int i = 0; i < people.length; i++){
             if(people[i] instanceof Student){
                 ((Student) people[i]).studentInformation();
@@ -53,11 +53,11 @@ public class Main {
         }
     }
 
-    public static String highestGrade(Person[] people){
+    public static String highestGrade(Person[] people) {
 
         String HighestGrade = people[0].getName();
 
-        for(int i = 1;i < people.length;i++){
+        for(int i = 1 ;i < people.length; i++){
             if(people[i] instanceof Student){
                 if (((Student) people[i]).getGradeMath() > ((Student)people[i-1]).getGradeMath()){
                     HighestGrade = people[i].getName();
@@ -67,11 +67,11 @@ public class Main {
         return HighestGrade;
     }
 
-    public static String lowestGrade(Person[] people){
+    public static String lowestGrade(Person[] people) {
 
         String lowestGrade = people[0].getName();
 
-        for(int i = 1;i < people.length;i++){
+        for(int i = 1; i < people.length; i++){
             if(people[i] instanceof Student){
                 if (((Student) people[i]).getGradeHistory() < ((Student)people[i-1]).getGradeHistory()){
                     lowestGrade = people[i].getName();
@@ -81,7 +81,7 @@ public class Main {
         return lowestGrade;
     }
 
-    public static double averageGradeForClass(Person[] people){
+    public static double averageGradeForClass(Person[] people) {
 
         double averageForClass = 0;
 
@@ -107,7 +107,7 @@ public class Main {
         return (salary / 2);
     }
 
-    public static void averageGrade(Person[] people){
+    public static void averageGrade(Person[] people) {
 
         double averageGrade = 0;
 
@@ -120,7 +120,7 @@ public class Main {
         }
     }
 
-    public static void TeacherSingingHighestGrade(Person[] people,int n){
+    public static void TeacherSingingHighestGrade(Person[] people,int n) {
 
 
         int averageForMath = 0;
@@ -129,15 +129,15 @@ public class Main {
         int averageForPhysics = 0;
 
                 for(int i = 0; i < people.length; i++) {
-                    if(people[i] instanceof Student){
+                    if(people[i] instanceof Student) {
 
                         averageForMath += ((Student) people[i]).getGradeMath() ;
                     }
                 }
                 averageForMath = averageForMath/n;
 
-                for(int i = 0; i < people.length; i++){
-                    if(people[i] instanceof Student){
+                for(int i = 0; i < people.length; i++) {
+                    if(people[i] instanceof Student) {
 
                         averageForHistory += ((Student) people[i]).getGradeHistory() ;
                     }
@@ -153,7 +153,7 @@ public class Main {
                 averageForScience = averageForScience/n;
 
                 for(int i = 0; i < people.length; i++) {
-                    if(people[i] instanceof Student){
+                    if(people[i] instanceof Student) {
 
                         averageForPhysics += ((Student) people[i]).getGradePhysics() ;
                     }
@@ -179,7 +179,7 @@ public class Main {
 
     }
 
-    public static String findingTeachersBySubject(Person[] people, String subject){
+    public static String findingTeachersBySubject(Person[] people, String subject) {
 
         for(int i = 0; i < people.length; i++) {
             if(people[i] instanceof Teacher){
