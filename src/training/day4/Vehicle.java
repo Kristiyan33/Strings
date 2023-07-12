@@ -7,9 +7,9 @@ public class Vehicle {
     private double fuel;
     private int horsePower;
 
-    public Vehicle(double fuel_,int hp) {
+    public Vehicle(double fuel,int hp) {
         fuelConsumption = DEFAULT_FUEL_CONSUMPTION;
-        this.fuel = fuel_;
+        this.fuel = fuel;
         this.horsePower = hp;
     }
 

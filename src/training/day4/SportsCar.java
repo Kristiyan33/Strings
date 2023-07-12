@@ -4,8 +4,8 @@ public class SportsCar extends Vehicle {
 
     private final double DEFAULT_FUEL_CONSUMPTION = 10;
 
-    public SportsCar(double fuel_, int hp) {
-        super(fuel_, hp);
+    public SportsCar(double fuel, int hp) {
+        super(fuel, hp);
     }
 
 
