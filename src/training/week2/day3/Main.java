@@ -53,10 +53,11 @@ public class Main {
     }
 
     public static String removeNumber(String s) {
-        return s.replaceAll("\\d", "");
 
+        return s.replaceAll("\\d", "");
     }
     static String extractInt(String string) {
+
         string = string.replaceAll("[^0-9]", " ");
         string = string.replaceAll(" +", " ");
 
@@ -64,6 +65,5 @@ public class Main {
             return "-1";
         }
         return string;
-
     }
 }
