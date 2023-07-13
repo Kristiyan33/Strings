@@ -67,12 +67,12 @@ public class Student extends Person{
 
     public void studentInformation(){
         super.personInformation();
-        System.out.println(super.getName() + " is in " + _class + "th class.");
-        System.out.println(super.getName() + " is number " + numberInClass + " in class.");
-        System.out.println(super.getName() + "'s grade in Math is " + gradeMath + ".");
-        System.out.println(super.getName() + "'s grade in History is " + gradeHistory + ".");
-        System.out.println(super.getName() + "'s grade in Science is " + gradeScience + ".");
-        System.out.println(super.getName() + "'s grade in Physics is " + gradePhysics + ".");
+        System.out.println("Class: " + _class);
+        System.out.println("Number in class: " + numberInClass);
+        System.out.println("Math grade: " + gradeMath);
+        System.out.println("History grade: " + gradeHistory);
+        System.out.println("Science grade is " + gradeScience);
+        System.out.println("Physics grade is " + gradePhysics );
     }
 
     public double averageMark(int gradeMath, int gradeHistory, int gradeScience, int gradePhysics){
@@ -80,5 +80,29 @@ public class Student extends Person{
         double average = (gradeMath + gradeHistory + gradeScience + gradePhysics)/2;
 
         return average;
+    }
+
+    public double averageGrade() {
+
+        double averageGrade = 0;
+
+                averageGrade = gradeMath + gradeHistory + gradeScience +gradePhysics;
+                return (averageGrade/4);
+
+    }
+
+    public void highestGrade() {
+        if(getGradeMath() > getGradeHistory() && getGradeMath() > getGradeScience() && getGradeMath() > getGradePhysics()) {
+            System.out.println(" is most successful in Math.");
+        }
+        if(getGradeHistory() > getGradeMath() && getGradeHistory() > getGradeScience() && getGradeHistory() > getGradePhysics()) {
+            System.out.println(" is most successful in History.");
+        }
+        if(getGradeScience() > getGradeHistory() && getGradeScience() > getGradeMath() && getGradeScience() > getGradePhysics()) {
+            System.out.println(" is most successful in Science.");
+        }
+        if(getGradePhysics() > getGradeHistory() && getGradePhysics() > getGradeScience() && getGradePhysics() > getGradeMath()) {
+            System.out.println(" is most successful in Physics.");
+        }
     }
 }

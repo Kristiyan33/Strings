@@ -12,9 +12,9 @@ public class Person {
     }
 
     public void personInformation() {
-        System.out.println("The name of the person is " + name);
-        System.out.println("He is a " + gender + ".");
-        System.out.println("His ID is " + ID);
+        System.out.println("Name: " + name);
+        System.out.println("Gender: " + gender);
+        System.out.println("ID: " + ID);
     }
 
     public String getName() {
